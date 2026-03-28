@@ -1,0 +1,150 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Client {
+  id: Int!
+  name: String!
+  email: String!
+  telephone: String!
+  niveauEtude: String!
+  dateNaissance: String!
+  modeFormation: String!
+  formation: Formation!
+}
+
+type Formation {
+  id: Int!
+  cover: String!
+  hoverCover: String!
+  backgroundImage: String!
+  courseName: String!
+  description: String!
+  duration: String!
+  price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  formateurNom: String
+  formateurPrenom: String
+  formateurEmail: String
+  formateurSpecialite: String
+  clients: [Client!]
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PaginatedFormations {
+  data: [Formation!]!
+  total: Int!
+  offset: Int!
+  limit: Int!
+  totalPages: Int!
+}
+
+type Formateur {
+  id: Int!
+  nom: String!
+  prenom: String!
+  email: String!
+  specialite: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type User {
+  id: Int!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AuthResponse {
+  access_token: String!
+  user: User!
+}
+
+type Query {
+  findAllFormations: [Formation!]!
+  findFormationsPaginated(offset: Int! = 0, limit: Int! = 10): PaginatedFormations!
+  findOne(id: Int!): Formation
+  findAllClients: [Client!]!
+  findClientsByFormation(formationId: Int!): [Client!]!
+  findAllFormateurs: [Formateur!]!
+  findFormateur(id: Int!): Formateur!
+  me: User!
+}
+
+type Mutation {
+  createFormation(createFormationInput: CreateFormationInput!): Formation!
+  updateFormation(id: Int!, data: UpdateFormationInput!): Formation!
+  removeFormation(id: Int!): Formation!
+  createClient(createClientInput: CreateClientInput!): Client!
+  createFormateur(createFormateurInput: CreateFormateurInput!): Formateur!
+  updateFormateur(id: Int!, data: CreateFormateurInput!): Formateur!
+  removeFormateur(id: Int!): Formateur!
+  register(registerInput: RegisterInput!): AuthResponse!
+  login(loginInput: LoginInput!): AuthResponse!
+}
+
+input CreateFormationInput {
+  courseName: String!
+  description: String!
+  duration: String!
+  price: Float!
+  cover: String
+  hoverCover: String
+  backgroundImage: String
+  formateurNom: String
+  formateurPrenom: String
+  formateurEmail: String
+  formateurSpecialite: String
+}
+
+input UpdateFormationInput {
+  courseName: String
+  description: String
+  duration: String
+  price: Float
+  cover: String
+  hoverCover: String
+  backgroundImage: String
+  formateurNom: String
+  formateurPrenom: String
+  formateurEmail: String
+  formateurSpecialite: String
+}
+
+input CreateClientInput {
+  name: String!
+  email: String!
+  telephone: String!
+  niveauEtude: String!
+  dateNaissance: String!
+  modeFormation: String!
+  formationId: Int!
+}
+
+input CreateFormateurInput {
+  nom: String!
+  prenom: String!
+  email: String!
+  specialite: String!
+}
+
+input RegisterInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
