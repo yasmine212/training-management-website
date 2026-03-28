@@ -1,0 +1,21 @@
+.formation-group {
+  margin-bottom: 30px;
+}
+.formation-group table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.formation-group th, .formation-group td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.formation-group h3 {
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.error-state {
+  color: #d32f2f;
+  font-weight: 600;
+  margin: 15px 0;
+}
