@@ -1,0 +1,37 @@
+.subscribe-form {
+  max-width: 600px;
+
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.subscribe-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subscribe-form form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.subscribe-form form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #fc0;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form form button:hover {
+  background-color: rgb(249, 212, 65);
+}
